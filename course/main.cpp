@@ -3,12 +3,12 @@
 #include <string>
 #include <fstream>
 using namespace std;
-void dataoutSearch() {
+void dataoutSearch() { //частина яка використовується для відображення пошукового результату
     SetConsoleCP(1251);
     string line;
     system("cls");
 
-    ifstream in("search.txt");
+    ifstream in("search.txt"); //відкриття файлу куди було записано результат пошуку
     if (in.is_open())
     {
         while (getline(in, line))
@@ -23,9 +23,9 @@ void dataoutSearch() {
     cin >> back;
     system("cls");
 }
-void search() {
-    ifstream inF("data.txt");
-    ofstream outF("search.txt");
+void search() {     //частина для пошуку і написання результату в файл
+    ifstream inF("data.txt");   //файл з усіма контактами
+    ofstream outF("search.txt"); //створюємо новий файл куди буде записуватися інформація
     string search;
     cout << "===========Пошук===========" << endl;
     cout << "Ведіть відомі вам дані:" << endl;
@@ -41,9 +41,9 @@ void search() {
     outF.close();
     cout << "Ось знайдені контакти" << endl;
 }
-void datadel() {
+void datadel() { //частина для видалення контактів
     ofstream fout;
-    fout.open("data.txt");
+    fout.open("data.txt"); //перезаписуємо файл з контактами, він очиститься 
     if (!fout.is_open())
     {
         cout << "Файл не відкрився" << endl;
@@ -63,7 +63,7 @@ void datadel() {
     Sleep(1000);
     system("cls");
 }
-void dataout() {
+void dataout() { //частина для відображення всіх записаних контактів
     SetConsoleCP(1251);
 
     string line;
@@ -87,11 +87,11 @@ void dataout() {
     cin >> back;
     system("cls");
 }
-void data() {
+void data() { //частина для запису нових контактів
     SetConsoleCP(1251);
     cout << "===========Додати_контакт===========" << endl;
     ofstream fout;
-    fout.open("data.txt", ofstream::app);
+    fout.open("data.txt", ofstream::app); // до створеного файлу буде постійно додаватися нова інформація
     if (!fout.is_open())
     {
         cout << "Файл не відкрився" << endl;
@@ -113,7 +113,7 @@ void data() {
         fout << pib << "||" << number << "||" << age << endl;  
     }
 }
-int main() {
+int main() {    //частина де знаходиться менб програми та посилання на всі діючі блоки
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
     int menu;
